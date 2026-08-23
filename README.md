@@ -40,6 +40,6 @@ A modern, high-performance, and responsive personal portfolio tailored for Data 
 
 ---
 
-## Built by Sonal
+## Built by Sonal.
 *Data Analyst*
 [LinkedIn](www.linkedin.com/in/sonal-vaishnav-08216a42b/) · [Portfolio](/)
