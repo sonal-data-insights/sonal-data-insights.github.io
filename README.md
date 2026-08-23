@@ -42,4 +42,4 @@ A modern, high-performance, and responsive personal portfolio tailored for Data 
 
 ## Built by Sonal
 *Data Analyst*
-[LinkedIn](www.linkedin.com/in/sonal-vaishnav-08216a42b/) · [Portfolio](https://sonal-data-insights.github.io/)
+[LinkedIn](www.linkedin.com/in/sonal-vaishnav1399/) · [Portfolio](https://sonal-data-insights.github.io/)
