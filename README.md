@@ -2,7 +2,7 @@
 
 A modern, high-performance, and responsive personal portfolio tailored for Data Analytics and Business Intelligence roles. Built with a sleek dark aesthetic, fluid kinetic animations, and direct WhatsApp & email integration.
 
-🔗 **Live Demo:** [https://sonal-portfolio.github.io](https://sonal-portfolio.github.io)
+🔗 **Live Link:** [https://sonal-data-insights.github.io/](https://sonal-data-insights.github.io/)
 
 ---
 
@@ -40,6 +40,6 @@ A modern, high-performance, and responsive personal portfolio tailored for Data 
 
 ---
 
-## Built by Sonal.
+## Built by Sonal
 *Data Analyst*
-[LinkedIn](www.linkedin.com/in/sonal-vaishnav-08216a42b/) · [Portfolio](/)
+[LinkedIn](www.linkedin.com/in/sonal-vaishnav-08216a42b/) · [Portfolio](https://sonal-data-insights.github.io/)
