@@ -35,22 +35,19 @@
       padding: 0;
     }
 
+    /* Lenis Smooth Scroll Base CSS */
     html.lenis, html.lenis body {
       height: auto;
     }
-
     .lenis.lenis-smooth {
       scroll-behavior: auto !important;
     }
-
     .lenis.lenis-smooth [data-lenis-prevent] {
       overscroll-behavior: contain;
     }
-
     .lenis.lenis-stopped {
       overflow: hidden;
     }
-
     .lenis.lenis-scrolling iframe {
       pointer-events: none;
     }
@@ -182,11 +179,92 @@
       color: var(--text-white);
     }
 
-    /* Hero Section */
+    /* ========================================= */
+    /* NEW HERO LAYOUT & PROFILE ANIMATION CSS   */
+    /* ========================================= */
     .hero-section {
       padding: 5rem 0 3.5rem;
     }
 
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero-profile-container {
+      position: relative;
+      width: 340px;
+      height: 340px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-profile-img {
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      object-fit: cover;
+      z-index: 2;
+      border: 4px solid var(--bg-surface);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    /* Animated Rings */
+    .profile-ring-1, .profile-ring-2 {
+      position: absolute;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .profile-ring-1 {
+      width: 310px;
+      height: 310px;
+      border: 2px dashed rgba(56, 189, 248, 0.5);
+      animation: rotateRing 20s linear infinite;
+    }
+
+    .profile-ring-2 {
+      width: 340px;
+      height: 340px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      animation: rotateRingReverse 25s linear infinite;
+    }
+
+    .profile-ring-glow {
+      position: absolute;
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.15);
+      filter: blur(40px);
+      z-index: 1;
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes rotateRing {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    @keyframes rotateRingReverse {
+      0% { transform: translate(-50%, -50%) rotate(360deg); }
+      100% { transform: translate(-50%, -50%) rotate(0deg); }
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(0.9); opacity: 0.5; }
+      100% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    /* Hero Text & Buttons */
     .badge-sub {
       font-size: 0.75rem;
       font-weight: 700;
@@ -208,14 +286,12 @@
       box-shadow: 0 0 10px var(--accent-blue);
     }
 
-    /* Refined Title */
     .hero-title {
       font-family: var(--font-display);
       font-size: 3.35rem;
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      max-width: 920px;
       margin-bottom: 1.5rem;
       color: #ffffff;
     }
@@ -223,13 +299,11 @@
     .hero-subtitle {
       font-size: 1.1rem;
       color: var(--text-muted);
-      max-width: 740px;
       margin-bottom: 2.5rem;
       line-height: 1.65;
       font-weight: 400;
     }
 
-    /* Action Buttons Row */
     .hero-action-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -310,6 +384,7 @@
       transform: translateY(-2px);
     }
 
+    /* Stats */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -840,8 +915,28 @@
       gap: 1rem;
     }
 
-    /* Responsive */
+    /* ========================================= */
+    /* RESPONSIVE DESIGN (MOBILE & TABLETS)      */
+    /* ========================================= */
     @media (max-width: 992px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+      }
+      .hero-action-buttons {
+        justify-content: center;
+      }
+      .hero-profile-container {
+        grid-row: 1; /* Profile photo upar aur text niche */
+        width: 280px;
+        height: 280px;
+      }
+      .hero-profile-img { width: 220px; height: 220px; }
+      .profile-ring-1 { width: 250px; height: 250px; }
+      .profile-ring-2 { width: 280px; height: 280px; }
+      .profile-ring-glow { width: 220px; height: 220px; }
+
       .hero-title { font-size: 2.7rem; }
       .about-grid, .edu-cert-grid, .contact-container { grid-template-columns: 1fr; gap: 2.25rem; }
       .skills-grid { grid-template-columns: repeat(2, 1fr); }
@@ -891,8 +986,9 @@
     <div class="container">
       <nav>
         <a href="#" class="nav-brand">
-          <div class="nav-avatar-circle" id="navAvatar">
-            SV
+          <div class="nav-avatar-circle" id="navAvatar" style="padding: 0; border: 1.5px solid rgba(255, 255, 255, 0.15);">
+            <!-- Image perfectly fit in the circle -->
+            <img src="Assets/SV.PNG" alt="Sonal Vaishnav" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
           <span class="nav-brand-name">Sonal Vaishnav</span>
         </a>
@@ -914,38 +1010,54 @@
   </header>
 
   <!-- Hero Section -->
+  <!-- Hero Section -->
   <section class="hero-section">
     <div class="container">
-      <div class="badge-sub">OPEN TO ANALYTICS ROLES</div>
-      <h1 class="hero-title">
-        Data Analyst turning raw, messy data into clear business decisions.
-      </h1>
-      <p class="hero-subtitle">
-        I work across SQL, Python, Advanced Excel and Power BI on data cleaning, manipulation, modeling and reporting — delivering analysis that stakeholders can act on.
-      </p>
-      
-      <div class="hero-action-buttons">
-        <a href="#projects" class="btn-main-action btn-view-projects">
-          View projects <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
+      <div class="hero-layout">
+        <!-- Left Text Content -->
+        <div class="hero-text-content">
+          <div class="badge-sub">OPEN TO ANALYTICS ROLES</div>
+          <h1 class="hero-title">
+            Data Analyst turning raw, messy data into clear business decisions.
+          </h1>
+          <p class="hero-subtitle">
+            I work across SQL, Python, Advanced Excel and Power BI on data cleaning, manipulation, modeling and reporting — delivering analysis that stakeholders can act on.
+          </p>
+          
+          <div class="hero-action-buttons">
+            <a href="#projects" class="btn-main-action btn-view-projects">
+              View projects <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
 
-        <a href="https://www.linkedin.com/in/sonal-vaishnav1399" target="_blank" class="btn-brand-icon btn-linkedin" title="LinkedIn Profile">
-  <i class="fa-brands fa-linkedin"></i> LinkedIn
-</a>
+            <a href="https://www.linkedin.com/in/sonal-vaishnav1399" target="_blank" class="btn-brand-icon btn-linkedin" title="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
 
-        <a href="https://github.com/sonal-data-insights" target="_blank" class="btn-brand-icon btn-github" title="GitHub Profile">
-          <i class="fa-brands fa-github"></i> GitHub
-        </a>
+            <a href="https://github.com/sonal-data-insights" target="_blank" class="btn-brand-icon btn-github" title="GitHub Profile">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
 
-        <a href="tel:+916376074512" class="btn-brand-icon btn-call" title="Call directly">
-          <i class="fa-solid fa-phone"></i> Call
-        </a>
+            <a href="tel:+916376074512" class="btn-brand-icon btn-call" title="Call directly">
+              <i class="fa-solid fa-phone"></i> Call
+            </a>
 
-        <a href="mailto:vaishnavsonal@gmail.com" class="btn-brand-icon btn-mail" title="Email directly">
-          <i class="fa-solid fa-envelope"></i> Email
-        </a>
+            <a href="mailto:vaishnavsonal@gmail.com" class="btn-brand-icon btn-mail" title="Email directly">
+              <i class="fa-solid fa-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Profile Image with Animated Rings -->
+        <div class="hero-profile-container">
+          <div class="profile-ring-1"></div>
+          <div class="profile-ring-2"></div>
+          <div class="profile-ring-glow"></div>
+          <!-- SV.PNG Image Add ho gayi yahan -->
+          <img src="Assets/SV.PNG" alt="Sonal Vaishnav" class="hero-profile-img">
+        </div>
       </div>
 
+      <!-- Stats Numbers -->
       <div class="stats-row">
         <div class="stat-item">
           <div class="stat-number">5+</div>
@@ -1171,28 +1283,35 @@
 
         <div class="cert-list">
           <div class="cert-item">
-            <h4>Data Analytics & GenAI Job Simulation</h4>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.4rem;">
+              <img src="Assets/Forage.png" alt="Forage Logo" style="width: 26px; height: 26px; object-fit: contain; border-radius: 4px;">
+              <h4 style="margin-bottom: 0;">Data Analytics & GenAI Job Simulation</h4>
+            </div>
             <div class="cert-issuer">Tata (Forage)</div>
             <p class="cert-desc">Delinquency analysis, predictive framing and responsible AI usage.</p>
             <a href="https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_6a661dced3a970278a582b7a_1787379644794_completion_certificate.pdf" target="_blank" class="cert-link-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate</a>
           </div>
 
           <div class="cert-item">
-            <h4>Quantitative Research Job Simulation</h4>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.4rem;">
+              <img src="Assets/Forage.png" alt="Forage Logo" style="width: 26px; height: 26px; object-fit: contain; border-radius: 4px;">
+              <h4 style="margin-bottom: 0;">Quantitative Research Job Simulation</h4>
+            </div>
             <div class="cert-issuer">JP Morgan Chase (Forage)</div>
             <p class="cert-desc">Pricing, data investigation and quantitative problem solving.</p>
             <a href="https://www.theforage.com/completion-certificates/Sj7temL583QAYpHXD/bWqaecPDbYAwSDqJy_Sj7temL583QAYpHXD_6a661dced3a970278a582b7a_1785077580316_completion_certificate.pdf" target="_blank" class="cert-link-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate</a>
           </div>
 
           <div class="cert-item">
-            <h4>Data Analytics Job Simulation</h4>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.4rem;">
+              <img src="Assets/Forage.png" alt="Forage Logo" style="width: 26px; height: 26px; object-fit: contain; border-radius: 4px;">
+              <h4 style="margin-bottom: 0;">Data Analytics Job Simulation</h4>
+            </div>
             <div class="cert-issuer">Deloitte (Forage)</div>
             <p class="cert-desc">Data analysis, forensic technology and client-ready reporting.</p>
             <a href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_6a661dced3a970278a582b7a_1785077926543_completion_certificate.pdf" target="_blank" class="cert-link-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Certificate</a>
           </div>
         </div>
-      </div>
-    </div>
   </section>
 
   <!-- Contact Section -->
